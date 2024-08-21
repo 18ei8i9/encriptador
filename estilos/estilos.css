@@ -1,3 +1,32 @@
+body{
+    background-color: #f3f5fc;
+    font-family: "Inter", sans-serif;
+}
+
 main{
     display: flex;
+    justify-content: space-around;
 }
+
+header img{
+    width: 170px;
+    height: 48px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85dvh;
+}
+
+.formulario_texto{
+    width: 577px;
+    border-color: transparent;
+    outline: none;
+    height: 50dvh;
+    background: transparent;
+}
+
+
+

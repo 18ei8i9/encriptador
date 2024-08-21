@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
     <link rel="stylesheet" href="./estilos/estilos.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <img src="./imagenes/Logo.png" alt="">
     </header>
     <main>
-        <form action="">
-            <textarea name="" id="" placeholder="Ingrese el texto aqui"></textarea>
-            <div class="boton__container">
-                <div class="alerta__mensaje"><img src="./imagenes/Vector.png" alt=""><span>Solo letras minusculas y sin acentos</span></div>
+        <form class="formulario">
+            <textarea  class="formulario_texto"   name="mensaje" id="" placeholder="Ingrese el texto aqui"></textarea>
+            <div class="contenedor">
+                <div class="boton__contenedor">
+                    <div class="alerta__mensaje"><img src="./imagenes/Vector.png" alt=""><span>Solo letras minusculas y sin acentos</span></div>
+                    </div>
+                
+                <input type="submit" value="Encriptar">
+                <input type="submit" value="Desencriptar">
             </div>
-            <input type="submit" value="Encriptar">
-            <input type="submit" value="Desencriptar">
         </form>
         <aside class="mensaje">
-            <img src="" alt="" class="mensaje__muneco">
+            <img src="./imagenes/Muñeco.png" alt="" class="mensaje__muneco">
             <div class="mensaje__contenedor">
                 <h3 class="mensaje__titulo">Ningun mensaje fue encontrado</h3>
                 <p class="mensaje__texto">Ingresa el texto que quieres encriptar o desencriptar</p>
