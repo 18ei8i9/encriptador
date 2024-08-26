@@ -1,9 +1,9 @@
 
 const btnEncriptar = document.querySelector(".boton_1");
 const txtEncriptar = document.querySelector(".formulario_texto");
-const aviso = document.querySelector(".alerta_mensaje");
+const aviso = document.querySelector(".texto_alerta");
 const respuesta = document.querySelector(".evaluar");
-const contenido = document.querySelector(".mensaje");
+const contenido = document.querySelector(".mensajes_contenedor");
 const btnCopiar = document.querySelector(".boton_copiar");
 const btnDesencriptar = document.querySelector(".boton_2");
 
