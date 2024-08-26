@@ -1,108 +1,314 @@
+:root{
+    --Font:#E5E5E5;
+    --White:#FFFFFF;
+    --Dark-Blue:#0A3871;
+    --Greey:#C5C5C5;
+    --Medium-Gray:#67808E;
+    --RGBA:rgba(0,0,0,0.08);
+    --White-Blue:#D8DFE8;
+    --Medium-Blue:#0a38718a;
+    --Gray:#343A40;
+    --Gree:#495057;
+}
+
 *{
     margin: 0;
     padding: 0;
-
-}
-
-header{
-    width: 100%;
-    height: 60px;
-    background-color: orangered;
-    
-
-}
-
-
-
-
-main {
-    width: 100%;
-    height: 600px;
-    background-color: orangered;
-    display: flex;
-    justify-content: space-between;
-    
-}
-
-form{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
    
-    width: 60%;
-    background-color: orange;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-radius: 14px;
-    padding: 20px;
-
-
 }
-
-aside{
+body{
     height: 100%;
-    width: 30%;
-    background-color:orange;
-    border-radius: 14px;
+}
+img{
+    max-width: 100%;
+}
+header{
+    position: absolute;
+    margin: 40px 0px 0px 40px;
 }
 
-.mensaje__muneco{
-    width: 100%;
-    height: 40%;
-    padding: 20px;
-    text-align: center;
+header .logo{
+    display: flex;
+    align-items: flex-start;
+    width: 120px;
+    height: 48px;
 }
 
-.mensaje__titulo{
-    width: 100%;
-    height: 20%;
-    padding: 20px;
-    text-align: center;
-    
+main{
+    display: flex;
+    flex-direction: row;
+    background-color: orangered;
+    background-size: cover;
+    background-position: center;
 }
 
-.mensaje__texto{
-    width: 100%;
-    height: 20%;
-    padding: 20px;
-    text-align: center;
+.formulario{
+    width: 60%;
+    margin: 168px 0px 0px 140px;
+    background: transparent;
+    background-color: orange;
+    border-radius: 15px;
 }
 
 .formulario_texto{
-    height: 60%;
-    resize: none;
-    border: none;
-    border-radius: 14px;
-    font-size: 25px;
+    width: 660px;
+    height: 288px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+    outline: none;
     background-color: yellow;
-    
+    border-radius: 15px;
+    resize: none;
+}
+
+.formulario_texto::placeholder,:focus{
+    color: var(--Dark-Blue);
+}
+
+.alerta__mensaje{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    position: absolute;
+    top: 500px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    opacity: 0.8;
+    color: var(--Medium-Gray);
 }
 
 .boton__contenedor{
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
-    gap: 20px;
-}
-
-.boton_1 , .boton_2 {
-    width: 30%;
-    height: 40px;
-    border-radius: 14px;
-    border: none;
-
-}
-
-.contenedor{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-    width: 100%;
-    height: 30%;
+    align-items: flex-start;
+    gap: 8px;
+    position: absolute;
+    top: 526px;
 }
 
 .boton_1{
-    background-color: orangered;
+    width: 328px;
+    height: 67px;
+    padding: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--White);
+    background: var(--Dark-Blue);
+    border: 1px solid var(--Dark-Blue);
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: 0px 20px 29px -5px var(--RGBA); 
 }
-.alerta__mensaje{
-    display: flex;
-    justify-content: center;
+
+.boton_1:active{
+    box-shadow: inset 2px 2px 4px var(--Font),
+    inset -3px -4px 8px var(--Dark-Blue);
+    color: var(--White-Blue);
+}
+.boton_2{
+    width: 328px;
+    height: 67px;
+    padding: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--Dark-Blue);
+    
+    border: 1px solid var(--Dark-Blue);
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: 0px 20px 29px -5px var(--RGBA); 
+}
+
+.boton_copiar:active,
+.boton_2:active{
+    box-shadow: inset 2px 2px 4px var(--Dark-Blue),
+    inset -3px -4px 8px var(--Font);
+    color: var(--Medium-Blue);
+}
+
+.mensaje{
+    width: 270px;
+    height: 580px;
+    
+    box-shadow: 10px 24px 32px -8px var(--Gray);
+    position: relative;
+    margin-top: 40px;
+    border-radius: 32px;
+    text-align: center;
+}
+
+.mensajes_contenedor{
+    width: 250px;
+    margin: auto;
+    margin-top: 50%;
+    
+}
+
+
+.mensaje__titulo{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--Gray);
+    
+}
+
+.mensaje__texto{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--Medium-Gray);
+   
+}
+
+.evaluar{
+    width: 100%;
+    height: 485px;
+    position: absolute;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--Gree);
+    background: transparent;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+    border: none;
+    resize: none;
+}
+
+.evaluar:focus{
+    outline: none;
+}
+
+.boton_copiar{
+    width: 224px;
+    height: 67px;
+    margin: 23px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    padding: 24px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+   
+    border: 1px solid ;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.boton_1:hover,
+.boton_2:hover,
+.boton_copiar:hover{
+    transform: scale(0.97);
+}
+
+@media(max-width: 1250px){
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .formulario{
+        margin: 168px 0px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .boton__contenedor{
+        display: flex;
+        align-items: center;
+        position: inherit;
+    }
+
+    .alerta__mensaje{
+        position: inherit;
+        margin: 15px;
+    }   
+    
+    .mensaje{
+        width: 665px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .mensajes_contenedor{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        bottom: 20%;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .mensaje__muneco{
+        display: none;
+    }
+
+    .boton_copiar{
+        position: inherit;
+        width: 100%;
+    }
+
+    .evaluar{
+        width: 100%;
+        height: 210px;
+        padding: 10px;
+    }
+}
+
+
+@media(max-width: 720px){
+    
+    header .logo{
+        width: 100%;
+        
+        padding: 2px;
+    }
+
+    .formulario{
+        width:  90%;
+        font-size: 24px;
+    }
+
+    .boton__contenedor{
+        display: grid;
+        gap: 21px;
+    }
+
+    .mensaje{
+        width: 90%;
+    }
+
 }

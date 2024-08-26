@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="./imagenes/Logo.png" alt="">
+        <img src="./imagenes/Logo.png" alt="" class="logo">
     </header>
     <main>
        
@@ -28,9 +28,13 @@
             </div>
         </form>
         <aside class="mensaje">
-            <img src="./imagenes/Muñeco.png" alt="" class="mensaje__muneco">
-            <h3 class="mensaje__titulo">Ningun mensaje fue encontrado</h3>
-            <p class="mensaje__texto">Ingresa el texto que quieres encriptar o desencriptar</p>
+            <div class="mensajes_contenedor">
+                <img src="./imagenes/Muñeco.png" alt="" class="mensaje__muneco">
+                <h3 class="mensaje__titulo">Ningun mensaje fue encontrado</h3>
+                <p class="mensaje__texto">Ingresa el texto que quieres encriptar o desencriptar</p>
+            </div>
+            <textarea type="mensaje" class="evaluar" readonly></textarea>
+            <button type="submit" class="boton_copiar">Copiar</button>
         </aside>
     </main>
     
