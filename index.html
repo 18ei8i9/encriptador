@@ -1,45 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador</title>
-    <link rel="stylesheet" href="./estilos/estilos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Puerto Bandera | Rosario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos/estilos.css">
 </head>
 <body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <nav class="topbar">
+      <img src="imagenes/Logo.png" alt="Logo Hotel Puerto Bandera" class="logo">
+      <a href="#contacto" class="btn btn-primary">Reservar ahora</a>
+    </nav>
+
+    <div class="hero-content container">
+      <h1>Hotel Puerto Bandera</h1>
+      <p>
+        Opción familiar de 2 estrellas en pleno centro de Rosario, a metros del Monumento Nacional a la Bandera y cerca del río Paraná.
+      </p>
+      <div class="badges">
+        <span>Buenos Aires 1020</span>
+        <span>Wi‑Fi gratis</span>
+        <span>Desayuno buffet</span>
+        <span>Estacionamiento</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container section" id="habitaciones">
+      <h2>Habitaciones</h2>
+      <p class="intro">Seleccioná una opción para ver capacidad y tarifa de referencia por noche.</p>
+
+      <div class="rooms-grid">
+        <button class="room-card" data-room="doble" style="--room-image: url('../imagenes/habitacion-doble.jpg')">
+          <span>Habitación Doble</span>
+        </button>
+        <button class="room-card" data-room="matrimonial" style="--room-image: url('../imagenes/habitacion-matrimonial.jpg')">
+          <span>Habitación Matrimonial</span>
+        </button>
+        <button class="room-card" data-room="triple" style="--room-image: url('../imagenes/habitacion-triple.jpg')">
+          <span>Habitación Triple</span>
+        </button>
+      </div>
+
+      <article class="room-detail" id="room-detail" aria-live="polite">
+        <h3>Elegí una habitación</h3>
+        <p>Hacé clic en cualquiera de las habitaciones para ver detalle de capacidad y precio.</p>
+      </article>
+    </section>
+
+    <section class="container section info-grid">
+      <article>
+        <h2>Características y servicios</h2>
+        <ul>
+          <li>Ubicación céntrica: a 200–250 m del Monumento Nacional a la Bandera.</li>
+          <li>A 300 m de la peatonal Córdoba, cerca de Catedral y Plaza 25 de Mayo.</li>
+          <li>Habitaciones con aire acondicionado, TV por cable, minibar y baño privado.</li>
+          <li>Calefacción, teléfono, secador de pelo y muebles de madera.</li>
+          <li>Desayuno buffet incluido, Wi‑Fi gratuito y recepción.</li>
+          <li>Gimnasio, conserjería y facilidades para renta de automóviles.</li>
+          <li>A 10 min en auto de la terminal de autobuses y 25 min del Aeropuerto de Fisherton.</li>
+        </ul>
+      </article>
+
+      <article id="contacto">
+        <h2>Dirección y contacto</h2>
+        <p><strong>Dirección:</strong> Buenos Aires 1020, Rosario, Santa Fe.</p>
+        <p><strong>Teléfono:</strong> <a href="tel:+543414400930">+54 341 440 0930</a></p>
+        <p>
+          El hotel se destaca por su trato humano y ubicación estratégica, con oportunidades de mejora en mantenimiento según algunos comentarios de huéspedes.
+        </p>
+      </article>
+    </section>
+
+    <section class="container section" id="mapa">
+      <h2>Ubicación</h2>
+      <div class="map-wrapper">
+        <iframe
+          title="Mapa Hotel Puerto Bandera"
+          src="https://www.google.com/maps?q=Buenos+Aires+1020,+Rosario,+Santa+Fe&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <button id="chat-toggle" class="chat-toggle" aria-label="Abrir chat">💬</button>
+  <section id="chatbot" class="chatbot hidden" aria-label="Chat de asistencia">
     <header>
-        <img src="./imagenes/Logo.png" alt="" class="logo">
+      <h3>Asistente Hotel Puerto Bandera</h3>
+      <button id="chat-close" aria-label="Cerrar chat">✕</button>
     </header>
-    <main>
-       
-        <form class="formulario">
-            <textarea  class="formulario_texto"   name="mensaje" id="" placeholder="Ingrese el texto aqui"></textarea>
-            
-            <div class="contenedor">
-                <div class="alerta__mensaje">
-                    <img src="./imagenes/Vector.png" alt="" class="imagen_alerta">
-                    <p class="texto_alerta">Solo letras minúsculas y sin acentos</p>
-                </div>
-                <div class="boton__contenedor">
-                    <input class="boton_1" type="submit" value="Encriptar">
-                    <input class="boton_2" type="submit" value="Desencriptar">
-                </div>
-            </div>
-        </form>
-        <aside class="mensaje">
-            <div class="mensajes_contenedor">
-                <img src="./imagenes/Muñeco.png" alt="" class="mensaje__muneco">
-                <h3 class="mensaje__titulo">Ningun mensaje fue encontrado</h3>
-                <p class="mensaje__texto">Ingresa el texto que quieres encriptar o desencriptar</p>
-            </div>
-            <textarea type="mensaje" class="evaluar" readonly></textarea>
-            <button type="submit" class="boton_copiar">Copiar</button>
-        </aside>
-    </main>
-    
+    <div id="chat-messages" class="chat-messages">
+      <p class="bot">¡Hola! Soy el asistente del hotel. El webhook todavía no está configurado.</p>
+    </div>
+    <form id="chat-form" class="chat-form">
+      <input type="text" id="chat-input" placeholder="Escribí tu consulta..." required>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <script src="estilos/script/codigo.js"></script>
 </body>
-<script src="./estilos/script/codigo.js" ></script>
 </html>
