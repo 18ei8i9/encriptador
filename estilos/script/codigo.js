@@ -1,120 +1,86 @@
+const roomData = {
+  doble: {
+    titulo: 'Habitación Doble',
+    capacidad: '2 personas',
+    precio: 'ARS 52.000',
+    detalle: 'Ideal para pareja o dos huéspedes. Incluye aire acondicionado, TV por cable, minibar, Wi‑Fi y desayuno buffet.'
+  },
+  matrimonial: {
+    titulo: 'Habitación Matrimonial',
+    capacidad: '2 personas',
+    precio: 'ARS 58.000',
+    detalle: 'Cama matrimonial, baño privado con secador de pelo, calefacción y mobiliario de madera.'
+  },
+  triple: {
+    titulo: 'Habitación Triple',
+    capacidad: '3 personas',
+    precio: 'ARS 72.000',
+    detalle: 'Pensada para familias o grupos pequeños, con la comodidad y servicios del hotel incluidos.'
+  }
+};
 
-const btnEncriptar = document.querySelector(".boton_1");
-const txtEncriptar = document.querySelector(".formulario_texto");
-const aviso = document.querySelector(".texto_alerta");
-const respuesta = document.querySelector(".evaluar");
-const contenido = document.querySelector(".mensajes_contenedor");
-const btnCopiar = document.querySelector(".boton_copiar");
-const btnDesencriptar = document.querySelector(".boton_2");
+const detailBox = document.getElementById('room-detail');
+const roomButtons = document.querySelectorAll('.room-card');
 
-//-------Boton de Encriptar-------//
-btnEncriptar.addEventListener("click", e=>{
-    e.preventDefault();
-    let texto = txtEncriptar.value;
-    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "");
-    
-    if(texto == ""){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "El campo de texto no debe estar vacio";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
-
-    else if(texto !== txt){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "No debe tener acentos y caracteres especiales";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
-
-    else if(texto !== texto.toLowerCase()){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "El texto debe ser todo en minúscula";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
-
-    else{
-        texto = texto.replace(/e/mg, "enter");
-        texto = texto.replace(/i/mg, "imes");
-        texto = texto.replace(/a/mg, "ai");
-        texto = texto.replace(/o/mg, "ober");
-        texto = texto.replace(/u/mg, "ufat");
-
-        respuesta.innerHTML = texto;
-        btnCopiar.style.visibility = "inherit";
-        contenido.remove(); 
-    }
+roomButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selected = roomData[button.dataset.room];
+    detailBox.innerHTML = `
+      <h3>${selected.titulo}</h3>
+      <p><strong>Capacidad:</strong> ${selected.capacidad}</p>
+      <p><strong>Tarifa desde:</strong> ${selected.precio} por noche</p>
+      <p>${selected.detalle}</p>
+    `;
+  });
 });
 
-//-------Boton de Desencriptar-------//
-btnDesencriptar.addEventListener("click", e=>{
-    e.preventDefault();
-    let texto = txtEncriptar.value;
-    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "");
-    
-    if(texto == ""){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "El campo de texto no debe estar vacio";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
+// Chatbot (placeholder)
+// Cuando tengas tu webhook, reemplazá este valor.
+const CHAT_WEBHOOK_URL = '';
 
-    else if(texto !== txt){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "No debe tener acentos y caracteres especiales";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
+const chatToggle = document.getElementById('chat-toggle');
+const chatBox = document.getElementById('chatbot');
+const chatClose = document.getElementById('chat-close');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
 
-    else if(texto !== texto.toLowerCase()){
-        aviso.style.background = "#0A3871";
-        aviso.style.color = "#FFFF";
-        aviso.style.fontWeight = "800";
-        aviso.textContent = "El texto debe ser todo en minúscula";
-        
-        setTimeout(()=>{
-            aviso.removeAttribute("style");
-        },1500);
-    }
+chatToggle.addEventListener('click', () => chatBox.classList.toggle('hidden'));
+chatClose.addEventListener('click', () => chatBox.classList.add('hidden'));
 
-    else{
-        texto = texto.replace(/enter/mg, "e");
-        texto = texto.replace(/imes/mg, "i");
-        texto = texto.replace(/ai/mg, "a");
-        texto = texto.replace(/ober/mg, "o");
-        texto = texto.replace(/ufat/mg, "u");
+function appendMessage(type, text) {
+  const p = document.createElement('p');
+  p.className = type;
+  p.textContent = text;
+  chatMessages.appendChild(p);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-        respuesta.innerHTML = texto;
-        btnCopiar.style.visibility = "inherit";
-        contenido.remove(); 
-    }
-});
+chatForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  if (!text) return;
 
+  appendMessage('user', text);
+  chatInput.value = '';
 
-btnCopiar.addEventListener("click", e=>{
-    e.preventDefault();
-    let copiar = respuesta;
-    copiar.select();
-    document.execCommand("copy"); 
+  if (!CHAT_WEBHOOK_URL) {
+    appendMessage('bot', 'Webhook aún no configurado. Más adelante conectaremos este chat con tu backend.');
+    return;
+  }
+
+  try {
+    const res = await fetch(CHAT_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    if (!res.ok) throw new Error('Error en respuesta del webhook');
+
+    const data = await res.json();
+    appendMessage('bot', data.reply || 'Mensaje recibido.');
+  } catch (err) {
+    appendMessage('bot', 'No pude conectar con el asistente en este momento.');
+  }
 });
